@@ -45,24 +45,24 @@ Para configurar/instalar/usar uma mensagem pelo `light` no `Linux Ubuntu`, você
     2.8 Realmente atualizar os pacotes instalados para as suas versões mais recentes, com base na última vez que você executou `sudo apt update`. Digite o seguinte comando e pressione `Enter`: `sudo apt full-upgrade -y`
  
 
-## 2. Usar um script de greeter
+## 2. Usar um _script_ de greeter
 
-Uma maneira de garantir que a mensagem seja mostrada é usar um script de greeter personalizado que será executado antes da tela de login. Este script pode criar uma janela de diálogo ou algo similar para mostrar a mensagem. O `zenity` é uma ferramenta que pode ser usada para criar uma janela de mensagem gráfica a partir de um script.
+Uma maneira de garantir que a mensagem seja mostrada é usar um _script_ de greeter personalizado que será executado antes da tela de login. Este _script_ pode criar uma janela de diálogo ou algo similar para mostrar a mensagem. O `zenity` é uma ferramenta que pode ser usada para criar uma janela de mensagem gráfica a partir de um _script_.
 
 1. **Instalar o `Zenity` (se ainda não estiver instalado):** `sudo apt install zenity -y`
 
-2. **Criar o Script de Mensagem:** Crie um novo arquivo de script. Por exemplo, `login_message.sh` em `/usr/local/bin/` com o comando: `sudo nano /usr/local/bin/login_message.sh`
+2. **Criar o Script de Mensagem:** Crie um novo arquivo de _script_. Por exemplo, `login_message.sh` em `/usr/local/bin/` com o comando: `sudo nano /usr/local/bin/login_message.sh`
 
 3. **Adicione o seguinte conteúdo ao arquivo:**
 
     ```
     #!/bin/bash
-    zenity --info --no-wrap --text="ATTENTION! \n\n EDF Technology, based on current labor legislation, reserves the right to audit and monitor the equipment and systems made available by it. \n Therefore, this equipment and / or system should only be used for corporate purposes of interest to the Company, if you have doubts about your permission to access it, \n and immediately, as the unauthorized use can be characterized by misuse and non-observance of the internal regulations, which may subject the employee to disciplinary penalties pertaining to the Information Security Policy and the Code of Conduct and Ethics. \n The actions performed on this equipment are monitored, which gives the owner the right to use them for any purpose." --title="EDF Technology" --width=1160 --height=1080
+    zenity --info --no-wrap --text="ATTENTION! \n\n EDF Technology, based on current labor legislation, reserves the right to audit and monitor the equipment and systems made available by it. \n Therefore, this equipment and / or system should only be used for corporate purposes of interest to the Company, if you have doubts about your permission to access it, \n and immediately, as the unauthorized use can be characterized by misuse and non-observance of the internal regulations, which may subject the employee to disciplinary penalties pertaining to the Information Security Policy and the Code of Conduct and Ethics. \n The actions performed on this equipment are monitored, which gives the owner the right to use them for any purpose." --title="EDF Technology" --width=1280 --height=720
     ```
 
 4. **Tornar o script executável:** `sudo chmod +x /usr/local/bin/login_message.sh`
 
-5. **Modificar a Configuração do `LightDM` para Executar o Script:** Edite ou crie o arquivo de configuração do `LightDM` como mencionado anteriormente, adicionando a linha para executar o script de mensagem: `sudo nano /etc/lightdm/lightdm.conf.d/50-my-custom.conf`
+5. **Modificar a Configuração do `LightDM` para Executar o Script:** Edite ou crie o arquivo de configuração do `LightDM` como mencionado anteriormente, adicionando a linha para executar o _script_ de mensagem: `sudo nano /etc/lightdm/lightdm.conf.d/50-my-custom.conf`
 
     5.1 **Adicione ou modifique a seguinte linha:** 
 
